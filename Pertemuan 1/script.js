@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const jasaKirimError = document.getElementById('jasaKirimError');
     const captchaError = document.getElementById('captchaError');
 
-    // Populate Sub Kategori based on Kategori selection
     kategori.addEventListener('change', function() {
         const selectedKategori = this.value;
         subKategori.innerHTML = '<option value="">--Pilih Sub Kategori--</option>';
@@ -60,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let captchaCode = generateCaptcha();
     captchaDisplay.value = captchaCode;
 
-    // Form Validation
     form.addEventListener('submit', function(event) {
         let isValid = true;
 
@@ -69,35 +67,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const jasaKirimSelected = document.querySelectorAll('input[name="jasa_kirim"]:checked').length;
         const captchaInputValue = captchaInput.value.trim();
 
-        // Reset error messages
         namaProdukError.textContent = '';
         deskripsiProdukError.textContent = '';
         jasaKirimError.textContent = '';
         captchaError.textContent = '';
 
-        // Validate Nama Produk
         if (namaProduk.length < 5 || namaProduk.length > 30) {
             namaProdukError.textContent = 'Nama Produk harus antara 5 hingga 30 karakter.';
             isValid = false;
         }
 
-        // Validate Deskripsi Produk
         if (deskripsiProduk.length < 5 || deskripsiProduk.length > 100) {
             deskripsiProdukError.textContent = 'Deskripsi Produk harus antara 5 hingga 100 karakter.';
             isValid = false;
         }
 
-        // Validate Jasa Kirim
         if (jasaKirimSelected < 3) {
             jasaKirimError.textContent = 'Pilih minimal 3 jasa kirim.';
             isValid = false;
         }
 
-        // Validate Captcha
         if (captchaInputValue !== captchaCode) {
             captchaError.textContent = 'Captcha tidak sesuai.';
             isValid = false;
-            // Regenerate captcha
+
             captchaCode = generateCaptcha();
             captchaDisplay.value = captchaCode;
             captchaInput.value = '';
@@ -108,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Reset error messages on form reset
     form.addEventListener('reset', function() {
         namaProdukError.textContent = '';
         deskripsiProdukError.textContent = '';
