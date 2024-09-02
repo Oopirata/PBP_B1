@@ -101,12 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    form.addEventListener('reset', function() {
+    form.addEventListener('reset', function(event) {
         namaProdukError.textContent = '';
         deskripsiProdukError.textContent = '';
         jasaKirimError.textContent = '';
         captchaError.textContent = '';
+
         captchaCode = generateCaptcha();
         captchaDisplay.value = captchaCode;
+
+        captchaInput.value = '';
     });
 });
