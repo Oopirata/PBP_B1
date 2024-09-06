@@ -11,6 +11,21 @@
             padding: 5px;
             text-align: center;
         }
+        body {
+            background-color: #5abf90;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -41,9 +56,9 @@
     }
 
     $array_mhs = array(
-        "Abdul" => array(89, 90, 54),
-        "Budi" => array(98, 65, 74),
-        "Nina" => array(67, 56, 84)
+        "Budi" => array(89, 90, 54),
+        "Joni" => array(98, 65, 74),
+        "Tejo" => array(67, 56, 84)
     );
 
     print_mhs($array_mhs);
