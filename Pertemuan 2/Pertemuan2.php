@@ -10,7 +10,9 @@
             border-collapse: collapse;
             padding: 5px;
             text-align: center;
+            margin:auto;
         }
+        
         body {
             background-color: #5abf90;
             font-family: Arial, sans-serif;
@@ -26,6 +28,17 @@
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2a3b4c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin: -30px -30px 30px -30px; 
+        }
     </style>
 </head>
 <body>
@@ -38,21 +51,26 @@
     }
 
     function print_mhs($array_mhs) {
-        echo "<table>";
-        echo "<tr><th>Nama</th><th>Nilai 1</th><th>Nilai 2</th><th>Nilai 3</th><th>Rata2</th></tr>";
+        echo "<div class ='container'>";
+            echo "<div class='title'>";
+                echo "<h1>Daftar Nilai Mahasiswa</h1>";
+            echo "</div>";
+            echo "<table>";
+            echo "<tr><th>Nama</th><th>Nilai 1</th><th>Nilai 2</th><th>Nilai 3</th><th>Rata2</th></tr>";
 
-        foreach ($array_mhs as $nama => $nilai) {
-            $rata2 = hitung_rata($nilai);
-            echo "<tr>";
-            echo "<td>$nama</td>";
-            echo "<td>$nilai[0]</td>";
-            echo "<td>$nilai[1]</td>";
-            echo "<td>$nilai[2]</td>";
-            echo "<td>" . $rata2 . "</td>";
-            echo "</tr>";
-        }
+            foreach ($array_mhs as $nama => $nilai) {
+                $rata2 = hitung_rata($nilai);
+                echo "<tr>";
+                echo "<td>$nama</td>";
+                echo "<td>$nilai[0]</td>";
+                echo "<td>$nilai[1]</td>";
+                echo "<td>$nilai[2]</td>";
+                echo "<td>" . $rata2 . "</td>";
+                echo "</tr>";
+            }
 
-        echo "</table>";
+            echo "</table>";
+        echo "</div>";
     }
 
     $array_mhs = array(
